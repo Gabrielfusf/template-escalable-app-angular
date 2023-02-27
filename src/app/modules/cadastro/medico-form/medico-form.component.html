@@ -1,0 +1,93 @@
+<div class="main-content">
+    <p-panel [toggleable]="true" toggler="header" header="Cadastrar Médico">
+        <form *ngIf="searchForm" (ngSubmit)="submitForm()" class="p-fluid grid p-4 pb-0 search-form" [formGroup]="searchForm">
+            <div class="field col-12 sm:col-3 md:col-3 xl:col-3">
+                <span class="p-float-label">
+                    <input  pInputText id="nome" formControlName="nome">
+                    <label for="nome">Nome</label>
+                </span>
+                <small class="p-error block ">{{getFieldError("nome")}}</small>
+            </div>
+
+            <div class="field col-12 sm:col-2">
+                <span class="p-float-label">
+                    <p-calendar id="data_nascimento-input" [showIcon]="true" dateFormat="yy/mm/dd"
+                        formControlName="data_nascimento"></p-calendar>
+                    <label for="data_nascimento-input">Data Nascimento</label>
+                </span>
+                <small class="p-error block ">{{getFieldError("data_nascimento")}}</small>
+
+            </div>
+            <div class="field col-12 sm:col-2">
+                <span class="p-float-label">
+                    <p-dropdown [options]="sexoOps"   optionLabel="label" formControlName="sexo" id="sexo-dropdown"></p-dropdown>
+                    <label for="sexo-dropdown">Gênero</label>
+                </span>
+                <small class="p-error block ">{{getFieldError("sexo")}}</small>
+            </div>
+
+            <div class="field col-12 sm:col-3 md:col-3 xl:col-3">
+                <span class="p-float-label">
+                    <input  pInputText id="RG" formControlName="RG">
+                    <label for="RG">RG</label>
+                </span>
+                <small class="p-error block ">{{getFieldError("RG")}}</small>
+            </div>
+            <div class="field col-12 sm:col-3 md:col-3 xl:col-3">
+                <span class="p-float-label">
+                    <input  pInputText id="CPF" formControlName="CPF">
+                    <label for="CPF">CPF</label>
+                </span>
+                <small class="p-error block ">{{getFieldError("CPF")}}</small>
+            </div>
+            <div class="field col-12 sm:col-3 md:col-3 xl:col-3">
+                <span class="p-float-label">
+                    <input  pInputText id="email" formControlName="email">
+                    <label for="email">E-mail</label>
+                </span>
+                <small class="p-error block ">{{getFieldError("email")}}</small>
+            </div>
+            <div class="field col-12 sm:col-3 md:col-3 xl:col-3">
+                <span class="p-float-label">
+                    <input type="password" pInputText id="password" formControlName="password">
+                    <label for="password">Senha</label>
+                </span>
+                <small class="p-error block ">{{getFieldError("password")}}</small>
+            </div>
+            <!-- <div class="field col-12 sm:col-3 md:col-3 xl:col-3">
+                <span class="p-float-label">
+                    <input type="password" pInputText id="password_confirm" formControlName="password_confirm">
+                    <label for="password_confirm">Confirmar Senha</label>
+                </span>
+                <small class="p-error block ">{{getFieldError("password_confirm")}}</small>
+            </div> -->
+            <div class="field col-12 sm:col-3 md:col-3 xl:col-2">
+                <span class="p-float-label">
+                    <input  pInputText id="CRM" formControlName="CRM">
+                    <label for="CRM">CRM</label>
+                </span>
+                <small class="p-error block ">{{getFieldError("CRM")}}</small>
+            </div>
+            <div class="field col-12 sm:col-3 md:col-3 xl:col-3">
+                <span class="p-float-label">
+                    <input  pInputText id="especialidade" formControlName="especialidade">
+                    <label for="especialidade">Especialidade</label>
+                </span>
+                <small class="p-error block ">{{getFieldError("especialidade")}}</small>
+            </div>
+            <!-- <div class="field col-12 sm:col-2">
+                <span class="p-float-label">
+                    <p-dropdown [options]="admList"   optionLabel="label" formControlName="isADM" id="adm-dropdown"></p-dropdown>
+                    <label for="adm-dropdown">Administrador</label>
+                </span>
+            </div> -->
+            <div class="col-12 flex justify-content-end gap-4">
+                <p-button label="Salvar" [loading]="loadingTable" type="submit"></p-button>
+                <p-button routerLink="/medico"[disabled]="loadingTable" label="Voltar"
+                          styleClass="p-button-danger"></p-button>
+            </div>
+        </form>
+       
+    </p-panel>
+</div>
+<p-confirmDialog rejectButtonStyleClass="p-button-danger" header="Confirmação" acceptLabel="Sim" rejectLabel="Não" icon="pi pi-exclamation-triangle"></p-confirmDialog>

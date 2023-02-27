@@ -1,0 +1,65 @@
+<div class="main-content">
+    <p-panel [toggleable]="true" toggler="header" header="Pesquisa Médicos">
+
+    </p-panel>
+    <p-table [paginator]="true" selectionMode="single" [responsive]="true" [rowsPerPageOptions]="[10,25,50]" [rows]="10"
+    [value]="medicos" [loading]="loadingTable" [showCurrentPageReport]="true"
+   currentPageReportTemplate="Mostrando de {first} até {last}, de um total de {totalRecords} linhas" dataKey="arquivoId"
+   [rowHover]="true" responsiveLayout="scroll">
+   <ng-template pTemplate="caption">
+       <div class="table-header">
+           <button pButton pRipple type="button" icon="pi pi-plus" routerLink="/medico/novo" pTooltip="Adicionar"
+               class="p-button-rounded p-button-text remove-btn" ></button>
+
+       </div>
+   </ng-template>
+   <ng-template pTemplate="header">
+       <tr>
+           
+           <th *ngFor="let tableCol of tableCols" [pSortableColumn]="tableCol.field">
+               <div class="flex justify-content-between align-items-center">
+                   {{tableCol.label}}
+                   <p-sortIcon *ngIf="tableCol.sortable" [field]="tableCol.field"></p-sortIcon>
+               </div>
+           </th>
+       </tr>
+   </ng-template>
+   <ng-template let-medicos pTemplate="body">
+       <tr>
+           
+           <td>
+               {{medicos.nome}}
+           </td>
+           <td>
+               {{medicos.email}}
+           </td>
+           <td>
+               {{medicos.especialidade}}
+           </td>
+           <td>
+               {{medicos.status}}
+           </td>
+           <td>
+               <div class="flex">
+                   <button  tooltipPosition="bottom" (click)="goToEdit(medicos)" pButton pTooltip="Editar" pRipple type="button" icon="pi pi-pencil"
+                           class="p-button-rounded p-button-text p-button-warning"></button>
+                   <!-- <button  tooltipPosition="bottom" (click)="confirmDelete(medicos)" pButton pTooltip="Remover" pRipple type="button" icon="pi pi-trash"
+                           class="p-button-rounded p-button-danger p-button-text"></button> -->
+               </div>
+           </td>
+          
+
+       </tr>
+     
+   </ng-template>
+   <ng-template pTemplate="emptymessage">
+       <tr>
+           <td colspan="12" style="text-align: center;">
+               Sem dados
+           </td>
+       </tr>
+   </ng-template>
+</p-table>
+</div>
+
+<p-confirmDialog rejectButtonStyleClass="p-button-danger" header="Confirmação" acceptLabel="Sim" rejectLabel="Não" icon="pi pi-exclamation-triangle"></p-confirmDialog>

@@ -1,0 +1,37 @@
+<p-dialog [(visible)]="display"  [baseZIndex]="10000" [modal]="true" [closable]="false">
+    
+        <div class="col-12 flex justify-content-center gap-4">
+            <h1 style="color: #7084dc">BEM VINDO</h1>
+            
+            <!-- <img  src="assets/icon.png" alt="Logo do SOS Feridas Medicas" class="logoLogin" /> -->
+        </div>
+        <div class="col-12 flex justify-content-center gap-4">
+            <h1 style="color: #7084dc">SOS FERIDAS MÈDICAS</h1>
+            
+            <!-- <img  src="assets/icon.png" alt="Logo do SOS Feridas Medicas" class="logoLogin" /> -->
+        </div>
+                <form *ngIf="searchForm" (ngSubmit)="submitForm()" class="p-fluid grid p-4 pb-0 search-form" [formGroup]="searchForm">
+                    <div class="field col-12 sm:col-12 md:col-12 xl:col-12">
+                        <span class="p-float-label">
+                            <input type="email" pInputText id="usuario" formControlName="usuario">
+                            <label for="usuario">E-mail</label>
+                        </span>
+                        <small class="p-error block">{{getFieldError("usuario")}}</small>
+                    </div>
+                    <div class="field col-12 sm:col-12 md:col-12 xl:col-12">
+                        <span class="p-float-label">
+                            <input type="password" pInputText id="password" formControlName="password">
+                            <label for="password">Senha</label>
+                        </span>
+                        <small class="p-error block ">{{getFieldError("password")}}</small>
+                    </div>
+                    <div class="col-12 flex justify-content-center gap-4">
+                        <p-button label="Entrar" [loading]="loadingTable" type="submit"></p-button>
+                        
+                    </div>
+                </form>
+   
+   
+   
+   
+</p-dialog>

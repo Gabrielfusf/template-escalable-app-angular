@@ -1,0 +1,10 @@
+<p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
+    <img src="../assets/icon.png" style="margin-left: 25px; margin-right: 25px;width: 210px;" />
+    <p-panelMenu [model]="item"></p-panelMenu>
+
+
+    
+</p-sidebar>
+
+<button pButton pRipple type="button" icon="pi pi-arrow-right" class="p-button-outlined p-button-secondary"
+    (click)="visibleSidebar1 = true"></button>

@@ -1,0 +1,9 @@
+.p-sidebar .p-sidebar-content {
+    padding: 0 !important;
+}
+
+@media (max-width: 290px) {
+    .p-sidebar-left {
+        width: 17rem !important;
+    }
+}
